@@ -1,45 +1,26 @@
 Config = {}
 
--- Autotallin käytettävissä olevat sijainnit (4 koordinaattia jokaiseen sijaintiin, muodostavat neliön)
+-- Autotallit (7 sijaintia, jokaisella 4 koordinaattia luomaan neliön)
 Config.GarageLocations = {
-    {
-        {x = 215.5, y = -804.5, z = 30.5},
-        {x = 218.0, y = -802.0, z = 30.5},
-        {x = 217.0, y = -806.0, z = 30.5},
-        {x = 219.5, y = -804.0, z = 30.5}
-    },
-    {
-        {x = 300.5, y = -550.3, z = 43.3},
-        {x = 303.0, y = -552.5, z = 43.3},
-        {x = 301.5, y = -556.0, z = 43.3},
-        {x = 304.0, y = -554.5, z = 43.3}
-    },
-    {
-        {x = -300.5, y = 2700.3, z = 43.2},
-        {x = -303.0, y = 2702.0, z = 43.2},
-        {x = -301.5, y = 2698.5, z = 43.2},
-        {x = -303.5, y = 2701.0, z = 43.2}
-    },
-    {
-        {x = -1100.1, y = -350.5, z = 37.5},
-        {x = -1102.0, y = -352.0, z = 37.5},
-        {x = -1101.5, y = -348.0, z = 37.5},
-        {x = -1103.0, y = -350.5, z = 37.5}
-    },
-    {
-        {x = 1500.2, y = -2000.1, z = 52.1},
-        {x = 1503.0, y = -2002.0, z = 52.1},
-        {x = 1501.5, y = -2003.5, z = 52.1},
-        {x = 1504.0, y = -2001.0, z = 52.1}
-    },
-    {
-        {x = -580.4, y = -780.3, z = 26.2},
-        {x = -583.0, y = -782.0, z = 26.2},
-        {x = -581.5, y = -778.5, z = 26.2},
-        {x = -584.0, y = -780.0, z = 26.2}
-    }
+    { {x = 200.0, y = 200.0, z = 30.0}, {x = 220.0, y = 200.0, z = 30.0}, {x = 220.0, y = 220.0, z = 30.0}, {x = 200.0, y = 220.0, z = 30.0} },  -- Autotalli 1
+    { {x = 300.0, y = 300.0, z = 30.0}, {x = 320.0, y = 300.0, z = 30.0}, {x = 320.0, y = 320.0, z = 30.0}, {x = 300.0, y = 320.0, z = 30.0} },  -- Autotalli 2
+    { {x = 400.0, y = 400.0, z = 30.0}, {x = 420.0, y = 400.0, z = 30.0}, {x = 420.0, y = 420.0, z = 30.0}, {x = 400.0, y = 420.0, z = 30.0} },  -- Autotalli 3
+    { {x = 500.0, y = 500.0, z = 30.0}, {x = 520.0, y = 500.0, z = 30.0}, {x = 520.0, y = 520.0, z = 30.0}, {x = 500.0, y = 520.0, z = 30.0} },  -- Autotalli 4
+    { {x = 600.0, y = 600.0, z = 30.0}, {x = 620.0, y = 600.0, z = 30.0}, {x = 620.0, y = 620.0, z = 30.0}, {x = 600.0, y = 620.0, z = 30.0} },  -- Autotalli 5
+    { {x = 700.0, y = 700.0, z = 30.0}, {x = 720.0, y = 700.0, z = 30.0}, {x = 720.0, y = 720.0, z = 30.0}, {x = 700.0, y = 720.0, z = 30.0} },  -- Autotalli 6
+    { {x = 800.0, y = 800.0, z = 30.0}, {x = 820.0, y = 800.0, z = 30.0}, {x = 820.0, y = 820.0, z = 30.0}, {x = 800.0, y = 820.0, z = 30.0} },  -- Autotalli 7
 }
 
-Config.StorageFee = 0 -- Autotalli on ilmainen
-Config.RepairEnabled = true  -- Ota käyttöön ajoneuvon korjaaminen autotallissa
-Config.RepairExteriorOnly = false -- Korjaa myös moottori, jos asetettu false
+-- Varikot (3 sijaintia, jokaisella 4 koordinaattia luomaan neliön)
+Config.GarageSpots = {
+    { {x = 1000.0, y = 1000.0, z = 30.0}, {x = 1020.0, y = 1000.0, z = 30.0}, {x = 1020.0, y = 1020.0, z = 30.0}, {x = 1000.0, y = 1020.0, z = 30.0} },  -- Varikko 1
+    { {x = 1100.0, y = 1100.0, z = 30.0}, {x = 1120.0, y = 1100.0, z = 30.0}, {x = 1120.0, y = 1120.0, z = 30.0}, {x = 1100.0, y = 1120.0, z = 30.0} },  -- Varikko 2
+    { {x = 1200.0, y = 1200.0, z = 30.0}, {x = 1220.0, y = 1200.0, z = 30.0}, {x = 1220.0, y = 1220.0, z = 30.0}, {x = 1200.0, y = 1220.0, z = 30.0} },  -- Varikko 3
+}
+
+-- Aikaraja ajoneuvojen hakemiselle varikolta autotallista ottamisen jälkeen (10 minuuttia)
+Config.VehicleRetrieveCooldown = 600  -- 600 sekuntia eli 10 minuuttia
+
+-- Korjausasetukset
+Config.RepairEnabled = true
+Config.RepairExteriorOnly = false  -- Vaihda false jos haluat myös moottorin korjaamisen
