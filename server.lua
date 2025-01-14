@@ -39,33 +39,4 @@ end)
 QBCore.Functions.CreateCallback('dextys_garage:getStoredVehicles', function(source, cb)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    local citizenid = Player.PlayerData.citizenid
-
-    MySQL.Async.fetchAll('SELECT * FROM garage_slots WHERE citizenid = @citizenid', {
-        ['@citizenid'] = citizenid
-    }, function(result)
-        cb(result)
-    end)
-end)
-
--- Ota ajoneuvo pois autotallista
-RegisterServerEvent('dextys_garage:retrieveVehicle')
-AddEventHandler('dextys_garage:retrieveVehicle', function(plate)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    local citizenid = Player.PlayerData.citizenid
-
-    -- Haetaan ajoneuvo tietokannasta
-    MySQL.Async.fetchAll('SELECT * FROM garage_slots WHERE citizenid = @citizenid AND plate = @plate', {
-        ['@citizenid'] = citizenid,
-        ['@plate'] = plate
-    }, function(result)
-        if result[1] then
-            TriggerClientEvent('dextys_garage:spawnVehicle', src, result[1].plate)
-        else
-            TriggerClientEvent('QBCore:Notify', src, "Ei ajoneuvoa tallennettuna autotallissa.", "error")
-        end
-    end)
-end)
-
--- Näin ajoneuvot voidaan tallettaa ja noutaa ilman erillisiä sijainteja, ja ne ovat saatavilla kaikista autotalleista.
+    local citizenid = Player
