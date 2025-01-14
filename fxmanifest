@@ -5,28 +5,20 @@ author 'Dextys'
 description 'Autotalli - QBCore'
 version '1.0.0'
 
--- Määritellään, että skripti käyttää QBCore-frameworkia
 dependency 'qb-core'
 
-
 client_scripts {
-    'client.lua',  -- Asiakaspuolen skripti
+    'client.lua',
 }
 
-
 server_scripts {
-    'server.lua',  -- Palvelinpuolen skripti
+    'server.lua',
 }
 
 mysql_async '1.8.0'
 
-
 shared_scripts {
-    '@qb-core/import.lua',  -- Tämän avulla voidaan käyttää QBCore:ta.
+    '@qb-core/import.lua',
 }
 
-
-client_script 'client.lua'
-
-
-lua54 'yes'  -- Jos käytät Lua 5.4:tä
+lua54 'yes'
