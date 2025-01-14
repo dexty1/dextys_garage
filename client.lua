@@ -105,3 +105,4 @@ function DrawText3DHelper(x, y, z)
     local screenX, screenY = World3dToScreen2d(x, y, z)
     SetDrawOrigin(screenX, screenY, 0)
 end
+
