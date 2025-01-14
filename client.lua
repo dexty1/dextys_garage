@@ -68,13 +68,27 @@ Citizen.CreateThread(function()
         -- Asetetaan blip autotalliin
         local blip = AddBlipForCoord((garageCoords[1].x + garageCoords[3].x) / 2, (garageCoords[1].y + garageCoords[3].y) / 2, (garageCoords[1].z + garageCoords[3].z) / 2)
         SetBlipSprite(blip, 357)
-        SetBlipDisplay(blip, 4)
+        SetBlipDisplay(blip, 3)
         SetBlipScale(blip, 0.8)
         SetBlipColour(blip, 2)
         BeginTextCommandSetBlipName('STRING')
         AddTextComponentString("Autotalli")
         EndTextCommandSetBlipName(blip)
 
+
+for _, depotCoords in ipairs(Config.DepotLocations) do
+        local blip = AddBlipForCoord((depotCoords[1].x + depotCoords[3].x) / 2, (depotCoords[1].y + depotCoords[3].y) / 2, (depotCoords[1].z + depotCoords[3].z) / 2)
+        SetBlipSprite(blip, 357)  -- Varikon ikoni
+        SetBlipDisplay(blip, 5)
+        SetBlipScale(blip, 0.8)
+        SetBlipColour(blip, Yellow)  -- Keltainen väri
+        BeginTextCommandSetBlipName('STRING')
+        AddTextComponentString("Varikko")
+        EndTextCommandSetBlipName(blip)
+    end
+end)
+
+            
         -- Luodaan triggeri, joka aktivoituu kun pelaaja menee autotallin alueelle
         Citizen.CreateThread(function()
             while true do
